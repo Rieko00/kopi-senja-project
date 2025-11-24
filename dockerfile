@@ -1,14 +1,21 @@
-FROM richarvey/nginx-php-fpm:2.2.0
+FROM richarvey/nginx-php-fpm:latest
 
-# Set working directory
-WORKDIR /var/www/html
+# Konfigurasi Environment
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
 
-# Copy application files
-COPY . .
+# Copy semua file project
+COPY . /var/www/html
 
-# Adjust permissions for storage and bootstrap cache
-RUN chown -R www-data:www-data storage bootstrap/cache
-RUN chmod -R 775 storage bootstrap/cache
+# Copy folder scripts agar bisa dijalankan otomatis oleh Image
+# Image ini akan mencari script di folder /var/www/html/scripts/ dan menjalankannya
+COPY ./scripts/ /var/www/html/scripts/
 
-# Expose port 80
+# Berikan izin eksekusi ke script (PENTING!)
+RUN chmod +x /var/www/html/scripts/*.sh
+
+# Expose port
 EXPOSE 80
