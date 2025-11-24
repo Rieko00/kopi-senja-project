@@ -14,16 +14,16 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="nav ms-lg-auto flex-column flex-lg-row text-lg-end">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/') }}">Home</a>
+                        <a class="nav-link text-white" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/menu') }}">Menu</a>
+                        <a class="nav-link text-white" href="{{ route('menu') }}">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/about') }}">Tentang Kami</a>
+                        <a class="nav-link text-white" href="{{ route('about') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/contact') }}">Kontak</a>
+                        <a class="nav-link text-white" href="{{ route('contact') }}">Kontak</a>
                     </li>
                 </ul>
             </div>
